@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/upload.css">
+    <style>
+        .upload-area {
+            float: left;
+        }
+        .img-box>li>.del-msk {
+            width: 0.6rem;
+            height: 0.6rem;
+            background-color: red;
+        }
+        .img-box > li .del-img {
+            width: 100%;
+            height: 100%;
+            background: yellow url();
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="groupPhoto">
+</div>
+<div id="upload-house-photos">
+    <ul class="img-box clearfix">
+        <div class="upload-area">
+            <input type="file" accept="image/*">
+            <p class="upload-notice">msg</p>
+        </div>
+    </ul>
+</div>
+<script src="./plugins/jquery.min.js"></script>
+<script src="./js/exif.js"></script>
+<script src="./js/uploadImg.js"></script>
+<script>
+    var $groupPhoto=$('#groupPhoto');
+    var client = navigator.userAgent;
+    var isiOS = !!client.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios缁堢
+    var $uploadHousePhotos=$('#upload-house-photos');
+    if(isiOS){
+        $uploadHousePhotos.find('input').attr('multiple',true);
+    }
+    var uploadOptions={
+        host:'http://dev-esheyi.yingjiashenghuo.com',
+        path:'/agent-service/api/upload/uploadBase64.do',
+        uploadType:"more",
+        fileName:"Mobile_groupPhoto",
+        folder:"agent",
+        maxFiles:3,
+        agentId:"8a28d24d5d979ae0015d97cd6418000a",
+        token:"1E63CC416FF7F4268B75815890E2D128",
+        uploadSuccess:function (filePath,photoList) {
+            $groupPhoto.val(photoList.join(","));
+        },
+        deleteImage:function (photoList) {
+            $groupPhoto.val(photoList.join(","));
+        },
+        uploadFail:function (data) {
+
+        }
+    };
+    var uploadHousePhoto= new UploadImage($uploadHousePhotos,uploadOptions);
+</script>
+</body>
+</html>

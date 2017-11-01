@@ -1,0 +1,138 @@
+/*.upload-area {*/
+    /*margin:.2rem 0 0 2.4%;*/
+    /*width: 22%;*/
+    /*height: 1.54rem;*/
+    /*background: url(../img/uploadImage-more.png) center center no-repeat;*/
+    /*-webkit-background-size: contain;*/
+    /*background-size: contain;*/
+    /*position: relative*/
+/*}*/
+.upload-area input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0
+}
+.upload-area .upload-notice {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #ff5658;
+    display: none
+}
+.img-box>li>img{
+    width:100%;
+    height: 100%;
+}
+.img-box>li .del-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 40%;
+    height: 1.1rem;
+    background: url(../img/del-img-list-d96484099c.png) center center no-repeat;
+    z-index: 9999
+}
+.img-box>li>.cover,.img-box>li>.del-msk {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0
+}
+.img-box>li>.cover {
+    left: 0;
+    z-index: 999;
+    background: url(../img/loading.gif) center center no-repeat rgba(0,0,0,.45);
+    -webkit-background-size: contain;
+    background-size: contain;
+    display:none;
+}
+.img-box>li>.del-msk {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    background-color: rgba(0,0,0,.3);
+    right: -120%
+}
+.img-box>li>.notice {
+    position: absolute;
+    width: auto;
+    bottom: 0;
+    left: 50%;
+    opacity: 1;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: #ff5658;
+    z-index: 999;
+    -ms-word-break: keep-all;
+    -moz-word-break: keep-all;
+    -o-word-break: keep-all;
+    -webkit-word-break: keep-all;
+    word-break: keep-all;
+    padding: 2px .1rem;
+    cursor: pointer;
+    /*display: none;*/
+}
+.img-box>li>.notice.success {
+    background-color: #1ab394;
+    display: block;
+}
+.img-box>li>.notice.error {
+    background-color: #ff5658;
+    display: block;
+}
+.img-box>li:hover .del-msk {
+    right: 0
+}
+#upload-house-photos{
+    height: auto;
+    width:100%;
+    background: #fff;
+    overflow: hidden;
+}
+.upload-area{
+    width:30.33%;
+    margin:0.2rem 1.5%;
+    height: 2.2rem;
+    background: url('../img/upload-add.png') no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow:hidden;
+    position: relative;
+}
+.img-box{
+    padding:.2rem 0;
+}
+.img-box > li{
+    width:30.33%;
+    margin:0.2rem 1.5%;
+    height:2.2rem;
+    background-color: red;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+.img-box > li .notice{
+    width:100%;
+    text-align: center;
+    font-size: .2rem;
+}
+.img-box > li .del-img{
+    width:48%;
+}
+.img-box>li>.loading{
+    display: block;
+}
+.hide{
+    display: none;
+}
